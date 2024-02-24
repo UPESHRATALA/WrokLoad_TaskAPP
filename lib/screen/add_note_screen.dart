@@ -23,7 +23,10 @@ class _Add_creenState extends State<Add_creen> {
     return Scaffold(
       backgroundColor: backgroundColors,
       appBar: AppBar(
-        title: Text('Upload Task'),
+        title: Text(
+          'Upload Your Task',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: custom_green,
       ),
       body: SafeArea(
