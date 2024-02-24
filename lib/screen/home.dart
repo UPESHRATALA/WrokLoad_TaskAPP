@@ -5,7 +5,7 @@ import 'package:flutter_to_do_list/screen/add_note_screen.dart';
 import 'package:flutter_to_do_list/widgets/stream_note.dart';
 
 class Home_Screen extends StatefulWidget {
-  const Home_Screen({super.key});
+  const Home_Screen({Key? key}) : super(key: key);
 
   @override
   State<Home_Screen> createState() => _Home_ScreenState();
@@ -18,6 +18,19 @@ class _Home_ScreenState extends State<Home_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColors,
+      appBar: AppBar(
+        title: Text(
+          'WorkLoad',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 50.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: custom_green,
+        centerTitle: true,
+        toolbarHeight: 200, // Set your preferred height here
+      ),
       floatingActionButton: Visibility(
         visible: show,
         child: FloatingActionButton(
@@ -51,9 +64,10 @@ class _Home_ScreenState extends State<Home_Screen> {
               Text(
                 'isDone',
                 style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey.shade500,
-                    fontWeight: FontWeight.bold),
+                  fontSize: 16,
+                  color: Colors.grey.shade500,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Stream_note(true),
             ],
