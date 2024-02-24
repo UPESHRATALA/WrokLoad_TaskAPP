@@ -4,7 +4,7 @@ import 'package:flutter_to_do_list/const/colors.dart';
 import 'package:flutter_to_do_list/data/firestor.dart';
 
 class Add_creen extends StatefulWidget {
-  const Add_creen({super.key});
+  const Add_creen({Key? key}) : super(key: key);
 
   @override
   State<Add_creen> createState() => _Add_creenState();
@@ -17,10 +17,15 @@ class _Add_creenState extends State<Add_creen> {
   FocusNode _focusNode1 = FocusNode();
   FocusNode _focusNode2 = FocusNode();
   int indexx = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColors,
+      appBar: AppBar(
+        title: Text('Upload Task'),
+        backgroundColor: custom_green,
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +36,7 @@ class _Add_creenState extends State<Add_creen> {
             SizedBox(height: 20),
             imagess(),
             SizedBox(height: 20),
-            button()
+            button(),
           ],
         ),
       ),
@@ -51,7 +56,10 @@ class _Add_creenState extends State<Add_creen> {
             Firestore_Datasource().AddNote(subtitle.text, title.text, indexx);
             Navigator.pop(context);
           },
-          child: Text('add task'),
+          child: Text(
+            'Add Task',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
@@ -61,7 +69,10 @@ class _Add_creenState extends State<Add_creen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Cancel'),
+          child: Text(
+            'Cancel',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );
