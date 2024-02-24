@@ -3,6 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_to_do_list/const/colors.dart';
 import 'package:flutter_to_do_list/screen/add_note_screen.dart';
 import 'package:flutter_to_do_list/widgets/stream_note.dart';
+import 'package:flutter_to_do_list/data/auth_data.dart';
+import 'login.dart'; // Import your login screen file
 
 class Home_Screen extends StatefulWidget {
   const Home_Screen({Key? key}) : super(key: key);
@@ -29,7 +31,20 @@ class _Home_ScreenState extends State<Home_Screen> {
         ),
         backgroundColor: custom_green,
         centerTitle: true,
-        toolbarHeight: 200, // Set your preferred height here
+        toolbarHeight: 200,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () async {
+              await AuthenticationRemote().logout();
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => LogIN_Screen(() {
+                  // Implement any necessary logic when returning from login screen
+                }),
+              ));
+            },
+          ),
+        ],
       ),
       floatingActionButton: Visibility(
         visible: show,

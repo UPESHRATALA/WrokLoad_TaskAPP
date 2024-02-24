@@ -17,7 +17,7 @@ class _LogIN_ScreenState extends State<LogIN_Screen> {
   final email = TextEditingController();
   final password = TextEditingController();
 
-  @override
+  @override  
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -69,9 +69,9 @@ class _LogIN_ScreenState extends State<LogIN_Screen> {
           GestureDetector(
             onTap: widget.show,
             child: Text(
-              'Sign UP',
+              'Sign up',
               style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.green,
                   fontSize: 14,
                   fontWeight: FontWeight.bold),
             ),
@@ -97,7 +97,7 @@ class _LogIN_ScreenState extends State<LogIN_Screen> {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(
-            'LogIn',
+            'Login',
             style: TextStyle(
               color: Colors.white,
               fontSize: 23,
